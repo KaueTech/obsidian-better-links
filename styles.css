@@ -1,8 +1,60 @@
-/*
+:root {
+  --better-internal-fg: rgb(0, 255, 255);
+  --better-internal-fg-hover: rgb(255, 255, 255);
+  --better-internal-underline-hover: rgb(0, 148, 158);
 
-This CSS file will be included with your plugin, and
-available in the app when your plugin is enabled.
+  --better-external-fg: rgb(255, 0, 221);
+  --better-external-fg-hover: rgb(255, 255, 255);
+  --better-external-underline-hover: rgb(177, 0, 153);
 
-If your plugin does not need CSS, delete this file.
+  --better-underline-enabled: 1; /* 1 = sim, 0 = não */
+}
 
-*/
+/* GENERAL LINKS */
+a, .cm-link, .external-link, .cm-hmd-internal-link, .internal-link {
+  font-weight: 500;
+  text-decoration: none !important;
+  padding: 0;
+  background-position: 0 100%;
+  background-repeat: repeat-x;
+  background-size: calc(5px * var(--better-underline-enabled)) calc(2px * var(--better-underline-enabled));
+  transition: background-size 350ms ease, color 200ms ease-in-out !important;
+}
+
+/* HOVER */
+a:hover, .cm-link:hover, .external-link:hover, .cm-hmd-internal-link:hover, .internal-link:hover {
+  background-size: calc(4px * var(--better-underline-enabled)) calc(50px * var(--better-underline-enabled));
+}
+
+/* EXTERNAL LINKS */
+.cm-link .cm-underline, .external-link {
+  color: var(--better-external-fg) !important;
+  background-image: linear-gradient(to bottom, var(--better-external-fg) 0%, var(--better-external-fg) 100%) !important;
+}
+
+.cm-link .cm-underline:hover, .external-link:hover {
+  color: var(--better-external-fg-hover) !important;
+  background-image: linear-gradient(to bottom, var(--better-external-underline-hover) 0%, var(--better-external-underline-hover) 100%) !important;
+}
+
+/* INTERNAL LINKS */
+.cm-hmd-internal-link .cm-underline, .internal-link {
+  color: var(--better-internal-fg) !important;
+  background-image: linear-gradient(to bottom, var(--better-internal-fg) 0%, var(--better-internal-fg) 100%) !important;
+}
+
+.cm-hmd-internal-link .cm-underline:hover, .internal-link:hover {
+  color: var(--better-internal-fg-hover) !important;
+  background-image: linear-gradient(to bottom, var(--better-internal-underline-hover) 0%, var(--better-internal-underline-hover) 100%) !important;
+}
+
+/* REMOVE EXTERNAL LINK ICON */
+.markdown-preview-view .external-link,
+span.cm-url.external-link {
+  background-image: none;
+  padding-right: 0;
+}
+
+.cm-formatting.cm-formatting-link-string.cm-highlight.cm-quote.cm-quote-1.cm-string.cm-url.external-link {
+  display: none;
+}
