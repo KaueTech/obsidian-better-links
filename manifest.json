@@ -1,7 +1,7 @@
 {
 	"id": "better-links",
 	"name": "Better Links",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"minAppVersion": "0.15.0",
 	"description": "Better obsidian internal and external links",
 	"author": "Kauê Dias",
